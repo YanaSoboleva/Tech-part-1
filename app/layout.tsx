@@ -6,8 +6,7 @@ import './globals.css';
 export default function RootLayout({ 
   children
 }: { 
-  children: React.ReactNode;
-  // sidebar: React.ReactNode; 
+  children: React.ReactNode; 
 }) {
   return (
     <html lang="en">
@@ -17,7 +16,6 @@ export default function RootLayout({
             <Header />
             <main>
               {children}
-              {/* {sidebar}  */}
             </main>
           </FilterProvider>
         </TanStackProvider>
