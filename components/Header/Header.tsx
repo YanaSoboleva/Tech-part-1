@@ -1,21 +1,22 @@
 import Link from 'next/link';
-import css from './Header.module.css';
+import styles from './Header.module.css';
+import Image from 'next/image';
 
 export const Header = () => {
   return (
-    <header className={css.header}>
-      <Link href="/" aria-label="Home" className={css.logo}>
-        NoteHub
+    <header className={styles.header}>
+      <Link href="/" className={styles.logo}>
+        <Image 
+          src="/logo.svg" 
+          alt="TravelTrucks" 
+          width={136} 
+          height={16} 
+          priority 
+        />
       </Link>
-      <nav aria-label="Main Navigation">
-        <ul className={css.navigation}>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/notes/filter/all">Notes</Link>
-          </li>
-        </ul>
+      <nav className={styles.nav}>
+        <Link href="/" className={styles.navLink}>Home</Link>
+        <Link href="/campers" className={styles.navLink}>Catalog</Link>
       </nav>
     </header>
   );

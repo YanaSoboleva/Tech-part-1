@@ -1,37 +1,44 @@
+
+
 .header {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #333;
-    color: white;
+    /* Відповідно до інспектора Figma: */
+    padding: 24px 64px;
+    border-bottom: 1px solid #f2f4f7;
+    background-color: #f7f7f7;
+    width: 100%;
+    box-sizing: border-box;
+    /* justify-content: center;
+    gap: 450px; */
 }
 
-.header a {
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    color: #101828;
     text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    margin-right: 652px;
 }
 
-.header a:hover {
-    color: #ddd;
-}
-
-.navigation {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.nav {
     display: flex;
-    gap: 1rem;
+    gap: 32px;
+    flex-shrink: 0;
 }
 
-.navigation li a {
+.navLink {
+    font-weight: 600;
+    font-size: 16px;
+    color: #101828;
     text-decoration: none;
-    color: white;
-    font-size: 1rem;
+    font: 500 16px / 1.5 "Inter", sans-serif;
+    text-align: center;
+    color: #101828;
 }
 
-.navigation li a:hover {
-    color: #ddd;
+/* Додайте ефект при наведенні */
+.navLink:hover {
+    color: #829B91;
 }

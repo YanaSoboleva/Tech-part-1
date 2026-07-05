@@ -1,142 +1,119 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+.title {
+  margin-bottom: 16px;
+  font: 600 48px / 0.66667 "Inter", sans-serif;
+  color: #f7f7f7;
+}
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.subtitle {
+  margin-bottom: 40px;
+  font: 600 24px / 1.33333 "Inter", sans-serif;
+  color: #f7f7f7;
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+.button {
   display: flex;
-  flex: 1;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
+  background-color: #829B91;
+  font: 500 16px / 1.5 "Inter", sans-serif;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-decoration: none;
   font-weight: 500;
-  color: var(--text-primary);
+  border-radius: 200px;
+  width: 173px;
+  height: 56px;
+  transition: background-color 0.3s ease;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+.button:hover {
+  background-color: #6D7B75;
 }
 
-.ctas a {
+.heroSection {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
+  justify-content: flex-start;
+  height: 100vh;
+  background-image: url('/Picture.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;padding: 0 64px;
+  color: #ffffff;
+} 
+
+.contentContainer {
+  width: 571px;
+  height: 176px;
+}
+
+/* ///////////////////////////////////////// */
+
+.error {
+  padding: 80px 0;
+  text-align: center;
+  font: 600 20px / 1.2 "Inter", sans-serif;
+  color: #101828;
+}
+
+.catalogPage {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 64px 52px;
+}
+
+.container {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.sidebarContainer {
+  width: 360px;
+  flex-shrink: 0;
+  padding: 24px;
+  border-radius: 20px;
+  background: #F7F7F7;
+}
+
+.listWrapper {
+  width: 888px;
+}
+
+.noResults {
+  width: 100%;
+  min-height: 520px;
+  padding: 120px 32px;
+  border-radius: 20px;
+  background: #F7F7F7;
+  text-align: center;
+}
+
+.campersList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.loadMoreButton {
+  display: block;
+  width: 145px;
+  height: 56px;
+  margin: 40px auto 0;
+  border-radius: 200px;
+  background: white;
+  font-size: 16px;
   font-weight: 500;
+  border-radius: 200px;
+  background: white;
+  color: #101828;
+  border: 1px solid #dadde1;
+  transition: background-color 0.3s ease;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.loadMoreButton:hover {
+  border: 1px solid #6d7b75;
 }

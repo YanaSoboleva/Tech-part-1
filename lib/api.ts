@@ -1,69 +1,46 @@
-import axios from 'axios';
-import { Note } from '@/types/note';
+import axios from "axios";
 
-export type NoteTag = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping' | 'all';
-
-export interface FetchNotesResponse {
-  notes: Note[];
-  totalPages: number;
-}
-
-export interface FetchParams {
-  page?: number;
-  perPage?: number;
-  search?: string;
-  tag?: NoteTag;
-}
-
-export type CreateNoteData = {
-  title: string;
-  content: string;
-  tag: Exclude<NoteTag, 'all'>; 
+const config = {
+  baseURL: "https://campers-api.goit.study",
+  timeout: 5000,
 };
 
-const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
+export const api = axios.create(config);
 
-const api = axios.create({
-  baseURL: 'https://notehub-public.goit.study/api', 
-  headers: {
-    ...(TOKEN && { Authorization: `Bearer ${TOKEN}` }),
-    'Content-Type': 'application/json',
-  },
-});
+import type {
+  BookingRequest,
+  BookingReuestResponse,
+  CamperDetailsEntity,
+  FiltersResponse,
+  ReviewEntity,
+  CampersQueryParams,
+  CamperListResponse,
+} from "@/types/campers";
 
-export const fetchNotes = async ({
-  page = 1,
-  perPage = 10,
-  search = '',
-  tag = 'all',
-}: FetchParams = {}): Promise<FetchNotesResponse> => {
-  const params: Record<string, string | number> = { page, perPage };
-
-  if (search.trim()) {
-    params.search = search;
-  }
-
-  if (tag && tag !== 'all') {
-    params.tag = tag;
-  }
-
-  const response = await api.get<FetchNotesResponse>('/notes', { params });
-  return response.data;
+export const getCampers = async (params: CampersQueryParams = {}) => {
+  const { data } = await api.get<CamperListResponse>("/campers", { params });
+  return data;
 };
 
-export const fetchNoteById = async (id: string): Promise<Note> => {
-  const response = await api.get<Note>(`/notes/${id}`);
-  return response.data;
+export const getCamperById = async (id: string) => {
+  const { data } = await api.get<CamperDetailsEntity>(`/campers/${id}`);
+  return data;
 };
 
-export const createNote = async (noteData: CreateNoteData): Promise<Note> => {
-  const response = await api.post<Note>('/notes', noteData);
-  return response.data;
+export const getCamperReviews = async (id: string) => {
+  const { data } = await api.get<ReviewEntity[]>(`/campers/${id}/reviews`);
+  return data;
 };
 
-export const deleteNote = async (id: string): Promise<Note> => {
-  const response = await api.delete<Note>(`/notes/${id}`);
-  return response.data;
+export const getCamperFilters = async () => {
+  const { data } = await api.get<FiltersResponse>("/campers/filters");
+  return data;
 };
 
-export default api;
+export const createBookingRequest = async (id: string, payload: BookingRequest) => {
+  const { data } = await api.post<BookingReuestResponse>(
+    `/campers/${id}/booking-requests`, 
+    payload
+  );
+  return data;
+};
