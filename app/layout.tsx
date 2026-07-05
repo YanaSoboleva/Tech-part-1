@@ -4,11 +4,10 @@ import { FilterProvider } from '@/app/context/FilterContext';
 import './globals.css';
 
 export default function RootLayout({ 
-  children, 
-  sidebar 
+  children
 }: { 
   children: React.ReactNode;
-  sidebar: React.ReactNode; 
+  // sidebar: React.ReactNode; 
 }) {
   return (
     <html lang="en">
@@ -18,7 +17,7 @@ export default function RootLayout({
             <Header />
             <main>
               {children}
-              {sidebar} 
+              {/* {sidebar}  */}
             </main>
           </FilterProvider>
         </TanStackProvider>
